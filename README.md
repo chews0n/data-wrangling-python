@@ -10,6 +10,7 @@ This tutorial was meant to be a brief (~1 hour introduction) to using the [Panda
 * [Data Normalization](#data-normalization)
 * [Binning](#binning)
 * [Resources](#resources)
+* [Video Tutorials](#video-tutorials)
 
 ## What is Pandas?
 Pandas is a python library that makes our lives as data scientists much easier. It's an excellent way to import large datasets into your code in order to work with, manipulate and interpret the sets.
@@ -127,3 +128,8 @@ We will go through a categorical binning using the `pd.cut()` method, which will
 * [Pandas Official documentation](https://pandas.pydata.org/pandas-docs/stable/tutorials.html)
 * [Tutorials points](https://www.tutorialspoint.com/python_pandas)
 * [Datacamp](https://www.datacamp.com/courses/pandas-foundations) 
+
+## Video Tutorials
+* [learn python in 1 hour](https://www.youtube.com/watch?v=kqtD5dpn9C8)
+* [pycharm tutorial](https://www.youtube.com/watch?v=56bPIGf4us0)
+* [Learn Python, Full Course for Beginners](https://www.youtube.com/watch?v=rfscVS0vtbw)
