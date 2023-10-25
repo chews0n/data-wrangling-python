@@ -3,8 +3,6 @@
 from weather_predictor.data import DownloadWeatherData
 from weather_predictor.data import ProcessData
 
-import pandas as pd
-import numpy as np
 import os
 from datetime import date
 
