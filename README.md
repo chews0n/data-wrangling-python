@@ -16,7 +16,7 @@ Pandas is a python library that makes our lives as data scientists much easier. 
 
 Pandas is effective at manipulating large datasets easily and effectively by using something called dataframes. A dataframe is essentially a table that contains rows and columns and other metadata that pandas uses to make your life easier.
 
-![dataframe](img/dataframe.png)
+![dataframe](img/datastructure.png)
 
 ## Processing Data
 This involves loading the data from some table-like data into a dataframe. Some of the common sources of data to read for Pandas with the related pandas function in brackets are:
