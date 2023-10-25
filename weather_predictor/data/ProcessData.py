@@ -130,7 +130,7 @@ class ProcessData:
 
 	def binning_temps(self):
 
-		self.df_train['bin'] = pd.cut(self.df_train['Max Temp (°C)'], 6, labels=["Freezing", "Cold", "Spring?", "Probably Spring", "Perfect", "Hotter than the sun"]).astype(str)
+		self.df_train['bin'] = pd.cut(self.df_train['Max Temp (°C)'], [-100.0, -15.0, 0.0, 10.0, 18.0, 25.0, 50.0], labels=["Freezing", "Cold", "Spring?", "Probably Spring", "Perfect", "Hotter than the sun"]).astype(str)
 		self.df_train['bin'].value_counts().plot(kind='bar')
 		# save the outputted figure
 		plt.savefig('plot_categories.png', dpi=300, bbox_inches='tight')
