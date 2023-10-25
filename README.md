@@ -4,12 +4,12 @@ This code and readme doc was created for Session #3 of the Spe Calgary Data Scie
 This tutorial was meant to be a brief (~1 hour introduction) to using the [Pandas python package](https://pandas.pydata.org/) for data science and data analytics.
 
 ## Summary
-* What is Pandas?
-* Processing Data
-* Data Cleaning
-* Data Normalization
-* Binning
-* Resources
+* [What is Pandas?](#what-is-pandas)
+* [Processing Data](#processing-data)
+* [Data Cleaning](#data-cleaning)
+* [Data Normalization](#data-normalization)
+* [Binning](#binning)
+* [Resources](#resources)
 
 ## What is Pandas?
 Pandas is a python library that makes our lives as data scientists much easier. It's an excellent way to import large datasets into your code in order to work with, manipulate and interpret the sets.
