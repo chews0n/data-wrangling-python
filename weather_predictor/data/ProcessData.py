@@ -1,6 +1,5 @@
 from datetime import date
 from datetime import datetime as dt
-import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,6 +7,11 @@ import matplotlib.dates as mdates
 
 col_list = ['Date/Time', 'Year', 'Month', 'Day', 'Max Temp (°C)', 'Min Temp (°C)', 'Mean Temp (°C)',
 			'Total Precip (mm)', 'Snow on Grnd (cm)']
+
+
+def filter_by_year(df, year):
+
+	return df[df['Year'].isin([year])]
 
 
 class ProcessData:
@@ -31,7 +35,7 @@ class ProcessData:
 			# pd.read_excel() to load an excel sheet in the same way
 
 			# Check if we're in the current year and truncate the number of rows to read in accordingly
-			if (year == this_year):
+			if year == this_year:
 				# Get the number of days until today
 				d0 = date(this_year, 1, 1)
 				d1 = date.today()
@@ -40,10 +44,7 @@ class ProcessData:
 			else:
 				nrows = 366
 
-
 			# check whether to load this to the test or train dataframe
-
-
 			if year == test_year:
 				self.df_test = pd.read_csv(self.load_general_path.format(year), usecols=col_list, nrows=nrows)
 			else:
@@ -53,16 +54,16 @@ class ProcessData:
 		for col in self.df_train.columns:
 			print(col)
 
-		## How many rows are there?
+		# How many rows are there?
 		print(len(self.df_train))
 
-		## Getting the first n-rows of the dataset
+		# Getting the first n-rows of the dataset
 		print(self.df_train.head(10))
 		# similarly, for the last n-rows it would be .tail(n-rows)
 
-
 	def clean_loaded_data(self):
-		# If you look through the csv files, there are missing values for some of the days, we need to handle these in a way that makes sense in order to get accurate data and avoid exceptions
+		# If you look through the csv files, there are missing values for some of the days, we need to handle these in a
+		# way that makes sense in order to get accurate data and avoid exceptions
 		# Remove any rows where Max Temp = NaN
 		# NaN's are removed as making a prediction for
 		self.df_train.replace(r"[a-zA-Z]", 0.0, inplace=True)
@@ -84,11 +85,6 @@ class ProcessData:
 		if np.isnan(self.df_train['Max Temp Prev (°C)'][0]):
 			self.df_train.at[0, 'Max Temp Prev (°C)'] = self.df_train['Max Temp (°C)'].values[0]
 
-	def filter_by_year(self, df, year):
-
-		return df[df['Year'].isin([year])]
-
-
 	def plot_column_data(self, year=date.today().year, column_name=''):
 		# Format the dates and combine with the predictions, test variables
 		# https://stackoverflow.com/questions/53863600/reduce-number-of-ticks-on-x-axis-where-labels-are-date
@@ -100,7 +96,7 @@ class ProcessData:
 			plot_date = [dt.strptime(dstr, '%Y-%m-%d') for dstr in self.df_test['Date/Time']]
 			plot_vals = self.df_test[column_name]
 		else:
-			one_year_df = self.filter_by_year(self.df_train, year)
+			one_year_df = filter_by_year(self.df_train, year)
 
 			plot_date = [dt.strptime(dstr, '%Y-%m-%d') for dstr in one_year_df['Date/Time']]
 			plot_vals = one_year_df[column_name]
@@ -119,7 +115,6 @@ class ProcessData:
 		plt.savefig('plot_{}_{}.png'.format(column_name, year), dpi=300, bbox_inches='tight')
 
 		plt.close()
-
 
 	def normalize_datasets(self):
 		# use the z-score method to normalize the data and plot it

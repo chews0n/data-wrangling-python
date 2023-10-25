@@ -25,7 +25,6 @@ def main():
     # Download the data into the correct folder
     weather_data.download_data(download_location=output_dir)
 
-
     # Processing the data, we are going to make a training and a test set for the data
     model_data = ProcessData(output_dir=output_dir)
 
