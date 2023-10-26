@@ -5,7 +5,21 @@ from weather_predictor.data import ProcessData
 
 import os
 from datetime import date
+import math
 
+
+def angle_normalization(anglein=0.0):
+    angle_max = 180.0
+    angle_min = 0.0
+
+    angle_abs = abs(anglein)
+
+    angle_sign = math.copysign(1.0, anglein)
+
+    if (angle_abs < 180.0):
+        return (angle_abs - angle_min)/(angle_max-angle_min)*angle_sign
+    else:
+        return (2*angle_max - angle_abs)/(angle_max-angle_min)*angle_sign
 
 def main():
     # Initial variables
@@ -39,6 +53,18 @@ def main():
     model_data.normalize_datasets()
 
     model_data.binning_temps()
+
+    # From discussion, looking at angle normalization
+    # print(angle_normalization(0.0))
+    # print(angle_normalization(90.0))
+    # print(angle_normalization(180.0))
+    # print(angle_normalization(270.0))
+    # print(angle_normalization(360.0))
+    #
+    # print(angle_normalization(-90.0))
+    # print(angle_normalization(-180.0))
+    # print(angle_normalization(-270.0))
+    # print(angle_normalization(-360.0))
 
 
 if __name__ == '__main__':
