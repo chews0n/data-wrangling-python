@@ -58,16 +58,16 @@ def main():
     model_data.binning_temps()
 
     # From discussion, looking at angle normalization
-    # print(angle_normalization(0.0))
-    # print(angle_normalization(90.0))
-    # print(angle_normalization(180.0))
-    # print(angle_normalization(270.0))
-    # print(angle_normalization(360.0))
+    # print(angle_normalization(anglein=0.0))
+    # print(angle_normalization(anglein=90.0))
+    # print(angle_normalization(anglein=180.0))
+    # print(angle_normalization(anglein=270.0))
+    # print(angle_normalization(anglein=360.0))
     #
-    # print(angle_normalization(-90.0))
-    # print(angle_normalization(-180.0))
-    # print(angle_normalization(-270.0))
-    # print(angle_normalization(-360.0))
+    # print(angle_normalization(anglein=-90.0))
+    # print(angle_normalization(anglein=-180.0))
+    # print(angle_normalization(anglein=-270.0))
+    # print(angle_normalization(anglein=-360.0))
 
 
 if __name__ == '__main__':
