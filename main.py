@@ -14,6 +14,9 @@ def angle_normalization(anglein=0.0):
 
     angle_abs = abs(anglein)
 
+    if (angle_abs > 360.0):
+        return float('NaN')
+
     angle_sign = math.copysign(1.0, anglein)
 
     if (angle_abs < 180.0):
